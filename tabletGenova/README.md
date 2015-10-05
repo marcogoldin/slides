@@ -4,3 +4,5 @@ Aib Liguria
 
 Genova, Biblioteca Universitaria
 7 ottobre 2015.
+
+Marco Goldin
