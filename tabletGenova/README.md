@@ -1,2 +1,6 @@
 # corso-sul-tablet
-Slide del corso di aggiornamento per bibliotecari "L'uso del tablet" / Aib Veneto-Regione del Veneto, Belluno, 13 aprile 2015.
+Slide del corso di aggiornamento per bibliotecari "Uso del tablet:un percorso concreto di digital literacy"
+Aib Liguria 
+
+Genova, Biblioteca Universitaria
+7 ottobre 2015.
