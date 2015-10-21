@@ -1,8 +1,7 @@
 # corso-sul-tablet
-Slide del corso di aggiornamento per bibliotecari "Uso del tablet:un percorso concreto di digital literacy"
-Aib Liguria 
+Slide del corso di aggiornamento per bibliotecari "Biblioteche, comunicazione e social network", 
+Aib Trentino Alto-Adige.
 
-Genova, Biblioteca Universitaria
-7 ottobre 2015.
+Bolzano, 19 ottobre 2015.
 
 Marco Goldin
