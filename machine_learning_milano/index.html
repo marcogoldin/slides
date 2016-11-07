@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Cosa fare con il machine learning in biblioteca?</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section><h3>Open Data, Machine Learning e Biblioteche</h3>
+				<p>seminario a cura di MLOL e Mediatech Group.</p>
+				<p>Milano, 7 novembre 2016, Biblioteca Sormani</p>
+				<p>__________________________________________</p>
+				<p>Marco Goldin</p>
+				<h4>Cosa fare con il machine learning in biblioteca?</h4>
+				</section>
+
+
+				<section><h3>Perché parliamo di machine learning</h3>
+				<p>Classificazione</p>
+				<p>Modelli predittivi</p>
+				<p>Modellli descrittivi</p>
+				</section>
+
+				<section><h3>In poche parole...</h3>
+				<p>Machine learning > <b>Machine classification</b></p>
+				</section>
+
+				<section><h3>Classificazione!</h3></section>
+				<section>
+				<blockquote>Il termine classificazione viene utilizzato per varie attività che si possono ricondurre alla gestione delle conoscenze.</blockquote>
+				</section>
+				<section>
+				<blockquote> L’attività di classificazione è propria dell’essere umano. Molte classificazioni si incontrano nella vita quotidiana, nelle opere di riferimento come i trattati, i cataloghi, le collezioni, gli atlanti non necessariamente geografici e le opere enciclopediche.</blockquote></section>
+				<section>
+				 <blockquote>In questi raccoglitori di conoscenze si possono individuare molti esempi significativi di classificazioni e queste constatazioni mostrano che le classificazioni svolgono ruoli di grande importanza nella organizzazione e nella gestione delle conoscenze.</blockquote>
+
+				<blockquote> In statistica, con il termine classificazione si intende l’insieme delle attività che, facendo uso di un algoritmo di analisi dei dati, individuano una rappresentazione di alcune caratteristiche di una entità da classificare (oggetto o nozione) e le associano ad una etichetta classificatoria.</blockquote>
+				</section>
+				<section><p>Massimo Aria</p>
+				<p>Associate Professor in Statistics for Social Sciences</p>
+				<p>PhD in Computational Statistics</p>
+				<p>Dept of Mathematics and Statistics </p>
+				<p>University of Naples Federico II</p></section>
+
+				<section><h3>Knowledge extraction</h3><blockquote>
+					Knowledge extraction is the creation of knowledge from structured (relational databases, XML) and unstructured (text, documents, images) sources. The resulting knowledge needs to be in a machine-readable and machine-interpretable format and must represent knowledge in a manner that facilitates inferencing.
+				</blockquote>
+				<p><a href="https://en.wikipedia.org/wiki/Knowledge_extraction">Wikipedia</a></p>
+				</section>
+				<section><h3>Il modello biblioteconomico</h3>
+				<blockquote>Library classification is an aspect of library and information science. It is DISTINCT from scientific classification in that it has as its goal to provide a useful ordering of DOCUMENTS rather than a theoretical organization of KNOWLEDGE.</blockquote>
+				<p>Ranganathan (1971)</p>
+				</section>
+				<section><h3>Il modello scientifico</h3>
+				<p>dall'analisi alla tassonomia</p>
+				</section>
+
+				<section><h3>Dai dati alle "caratteristiche" (features)</h3>
+				<p>Nell'era dei dati è ora possibile sperimentare nuovi modelli.</p>
+				<ul><li>Classificazione non supervisionata</li><li>Classificazione supervisionata</li></ul>
+				</section>
+
+				<section><h3>Un esempio... conversazionale...</h3></section>
+				<section><blockquote>Le biblioteche digitali sono conversazioni
+Non biblioteca digitale, ma biblioteche digitali, non un sistema, una grande narrazione sistematica, ma tante conversazioni tenute insieme da un linguaggio comune, da una struttura comunicativa basata sull'assunzione di impegni fra comunità diverse per pubblici diversi.</blockquote><p><a href="http://www.aib.it/aib/cg/gbdigd05a.htm3">Manifesto per le biblioteche digitali (AIB. Gruppo biblioteche digitali)</a></p></section>
+				<section><h3>E poi... lui...</h3>
+				<p><a href="https://en.wikipedia.org/wiki/Gordon_Pask">Gordon Pask</a></p>
+				<img src="img/ba61109.jpg"></section>
+
+				<section><h3>Conversation Theory</h3>
+				<p><a href="http://web.cortland.edu/andersmd/learning/Pask.htm">la teoria dietro il modello di apprendimento...</a></p>
+				<p>Conversation Theory: Applications in Education and Epistemology, Amsterdam, Elsevier Publishing Co., 1976.</p>
+				</section>
+
+				<section><h3>Le conversazioni sono documenti?</h3>
+				<ul><li>Sì.</li><li>Non per come la biblioteconomia intende tradizionalmente il termine "documento".</li>
+				<li>O meglio, non del tutto.</li></ul>
+				</section>
+				<section><h3>...è complicato...</h3> </section>
+
+				<section><h3>Dicevamo...</h3>
+				<h3>Knowledge extraction</h3><blockquote>
+					Knowledge extraction is the creation of knowledge from structured (relational databases, XML) and unstructured (text, documents, images) sources. The resulting knowledge needs to be in a machine-readable and machine-interpretable format and must represent knowledge in a manner that facilitates inferencing.
+				</blockquote>
+				<p><a href="https://en.wikipedia.org/wiki/Knowledge_extraction">Wikipedia</a></p>
+				</section>
+				<section><blockquote>Le biblioteche digitali integrano le comunità.</blockquote><blockquote>
+Le biblioteche digitali realizzano l'integrazione funzionale dei servizi offerti da molteplici comunità: archivi, biblioteche, musei, istituzioni della formazione e della ricerca, pubblica amministrazione, industria culturale, industria delle tecnologie dell'informazione e della comunicazione.</blockquote><p><a href="http://www.aib.it/aib/cg/gbdigd05a.htm3">Manifesto per le biblioteche digitali (AIB. Gruppo biblioteche digitali)</a></p></section>
+
+		<section><h3>Sperimentazione</h3> </section>
+		<section><h3>Approccio generalistico</h3>
+		<p>Le pagine Facebook del Comune di Milano e delle Biblioteche milanesi </p>
+		<p>Dalla conversazione alla classificazione attraverso il machine learning, la classificazione non supervisionata e la semantica computazionale</p>
+		</section>
+
+		<section><p><a href="https://nbviewer.jupyter.org/github/marcogoldin/data_science/blob/master/facebook_milano/Comune%20Milano%20Facebook%20-%20Commenti.ipynb">continua su github...</a> </p></section>
+
+		<section><h3>Grazie!</h3></section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
