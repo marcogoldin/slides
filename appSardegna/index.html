@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Come creare una app mobile per promuovere i contenuti culturali in biblioteca</title>
+
+		<meta name="description" content="Corso Aib - Macomer  - 10 novembre 2016">
+		<meta name="author" content="Marco Goldin">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!-- Intro -->
+			<div class="slides">
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_intro_genova.jpg" >
+					<h3><span style="color:#e7ad52">Come creare una app mobile per promuovere i contenuti culturali in biblioteca</span></h3>
+					<p><a href="http://www.aib.it/attivita/2016/55257-techno-basi-creare-app-mobile/" target="_blank">AIB Sardegna</a></p>
+					<p>10 novembre 2016</p>
+					<p>Macomer</p>
+					<p><a href="http://inmediaref.wordpress.com" target="_blank">Marco Goldin</a></p>
+					</p>
+				</section>
+
+				<!-- Slide #1 -->
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+				<section ><span style="color:#e7ad52"><h2>Oggi parliamo di...</h2></span></section>
+				</section>
+
+				<!-- Slide #2 -->
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+					<ol><li>Breve introduzione ai metadati</li>
+						<li>Il formato JSON</li>
+						<li>Introduzione al mobile web (app native e ibride)</li>
+						<li>I linguaggi per la progettazione</li> 
+						<li>Iniziare con le applicazioni mobile senza sapere nulla (o quasi) di codice (Andromo)</li>
+						<li>Cordova e Phonegap</li>
+						<li>Browser, strumenti avanzati e ispezione del codice</li>
+						<li>Le funzioni native di smartphone e tablet</li>
+						<li>InternetCulturale, CulturaItalia e Europeana</li>
+						<li>Come far dialogare una app con i contenuti esterni</li>
+						<li>Sviluppo, build e finalizzazione.</li>
+						<li>Altre risorse...</li>
+					</ol>
+				</section>
+
+				<!-- Slide #3 -->
+				<section data-transition="slide" data-background-transition="zoom" data-background="https://media.giphy.com/media/3oEjI8U7HxzbJDbVqo/giphy.gif">
+				<section ><h2>Pronti?</h2></section>
+				</section>
+
+				<!-- Slide #4 -->
+				<!-- Example of nested vertical slides -->
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+					<section>
+						<h2><span style="color:#e7ad52">Metadati</span></h2>
+						<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;Per capire cosa sono veramente i metadati e a cosa servono, dobbiamo prima pensare a cosa servono e cosa sono le informazioni.&rdquo;
+						</blockquote>
+						<p>Jeffrey Pomerantz</p>
+					</section>
+					<section>
+						<h2><span style="color:#e7ad52">Cosa sono...</span></h2>
+						<p>I metadati sono dati che descrivono altri dati, o meglio ancora:</p>
+						<p><span style="color:#e7ad52"><b>i metadati sono "descrizione"</b></span></p>
+					</section>
+					<section>
+						<h2><span style="color:#e7ad52">Il concetto di Statement</span></h2>
+						<p>Esattamente come nel linguaggio naturale, anche nella descrizione attraverso i metadati esistono ugualmente:</p>
+						<br>
+						<p><span style="color:#e7ad52"><b>Soggetto > Predicato > Oggetto</b></p></span>
+					</section>
+					<section><p><span style="color:#e7ad52"><b>"il titolo di questo libro è: Il senso delle cose"</b></span></p>
+					<p>si può rappresentare come:</p>
+					<p><span style="color:#e7ad52"><b>{"titolo" : "Il senso delle cose",</b></span></p>
+					<p><span style="color:#e7ad52"><b>"autore" : "Richard P. Feynman",</b></span></p>
+					<p><span style="color:#e7ad52"><b>"oggetto" : "libro"}</b></span></p>
+					</section>
+				</section>
+
+				<!-- Slide #5 -->
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+					<section>
+						<h2><span style="color:#e7ad52">JSON</span></h2>
+						<p>JSON (JavaScript Object Notation) è un semplice formato per lo <span style="color:#e7ad52"><b>scambio di dati</b></span>. Per le persone è facile da leggere e scrivere, mentre per le macchine risulta facile da generare e analizzarne la sintassi.</p>
+					</section>
+					<section data-transition="slide" data-background-transition="zoom" data-background="https://media.giphy.com/media/fn2sFqmwowbQY/giphy.gif">
+						<h2>Esempio di una risposta in JSON sul portale <span style="color:#e7ad52">Europeana</span></h2>
+						<pre><code class="hljs" data-trim contenteditable>
+{
+	"apikey": "XXX",
+	"action": "search.json",
+	"success": true,
+	"requestNumber": 999,
+	"itemsCount": 24,
+	"totalResults": 343,
+	"items": [],
+	"breadCrumbs": [],
+	"facets": []
+}
+						</code></pre>
+					</section>
+					<section>
+						<h3><span style="color:#e7ad52">XML o JSON ?</span></h3>
+					</section>
+					<section>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;XML ha molti punti a suo favore, come la versabilità che lo rende adattabile ad ogni situazione. E' un linguaggio conosciuto dalla maggior parte degli sviluppatori e, quasi in tutti i casi, facile da manipolare. A volte però, l’insieme di tanti (e diversi) tags fanno diventare il documento poco comprensibile, a prima vista.&rdquo;</blockquote>
+					</section>
+
+					<section>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;JSON viene processato molto più facilmente perchè strutturato diversamente da XML. E’ inoltre supportato da una grandissima moltitudine di linguaggi e rappresenta un miglior formato di scambio per i dati piuttosto che per i documenti in se. Anche se si basa su un sottoinsieme di Javascript, JSON è un formato di testo completamente indipendente dal linguaggio di programmazione.&rdquo;</blockquote>
+					</section>
+					<section>
+						<p><a href="https://api.flickr.com/services/feeds/photos_public.gne?tags=%22medioevo%22&tagmode=any&per_page=1&format=json">Esempio in JSON con Flickr (tag = "medioevo")</a></p>
+						<pre><code class="hljs" data-trim contenteditable>
+jsonFlickrFeed({
+		"title": "Recent Uploads tagged medioevo",
+		"link": "https://www.flickr.com/photos/tags/medioevo/",
+		"description": "",
+		"modified": "2016-04-12T19:24:50Z",
+		"generator": "https://www.flickr.com/",
+		"items": [
+	   {
+			"title": "Cripta",
+			"link": "https://www.flickr.com/photos/alecappellini/26121628070/",
+			"media": {"m":"https://farm2.staticflickr.com/1488/26121628070_f51ac646bf_m.jpg"},
+			"date_taken": "2016-04-12T10:30:44-08:00",
+			"description": "Cripta dell\'Abbazia di Nonantola",
+			"published": "2016-04-12T19:24:50Z",
+			"author": "nobody@flickr.com (Alessandro Cappellini)",
+			"author_id": "96119741@N07",
+			"tags": "medioevo colonne colonna alessandro esposizione archi lavoro romagna abbazia ossa canossa sotterraneo carlomagno nonantola modenese maestoso astolfo santalfonso grandiosità"
+	   }
+						</code></pre>
+					</section>
+					<section>
+						<p><a href="https://api.flickr.com/services/feeds/photos_public.gne?tags=%22medioevo%22&tagmode=any&per_page=1">Esempio in XML con Flickr (tag = "medioevo")</a></p>
+						<pre><code class="hljs" data-trim contenteditable>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:flickr="urn:flickr:user"
+      xmlns:media="http://search.yahoo.com/mrss/">
+
+  <title>Recent Uploads tagged medioevo</title>
+  <link rel="self" href="http://api.flickr.com/services/feeds/photos_public.gne?tags=%22medioevo%22&amp;tagmode=any&amp;per_page=1" />
+  <link rel="alternate" type="text/html" href="https://www.flickr.com/photos/tags/medioevo/"/>
+  <id>tag:flickr.com,2005:/photos/public/tagged/any/medioevo</id>
+  <icon>https://s.yimg.com/pw/images/buddyicon.gif</icon>
+  <subtitle></subtitle>
+  <updated>2016-04-12T19:24:50Z</updated>
+  <generator uri="https://www.flickr.com/">Flickr</generator>
+
+<entry>
+    <title>Cripta</title>
+    <link rel="alternate" type="text/html" href="https://www.flickr.com/photos/alecappellini/26121628070/"/>
+    <id>tag:flickr.com,2005:/photo/26121628070</id>
+    <published>2016-04-12T19:24:50Z</published>
+    <updated>2016-04-12T19:24:50Z</updated>
+    <flickr:date_taken>2016-04-12T10:30:44-08:00</flickr:date_taken>
+    <dc:date.Taken>2016-04-12T10:30:44-08:00</dc:date.Taken>
+    <content type="html">			&lt;p&gt;&lt;a href=&quot;https://www.flickr.com/people/alecappellini/&quot;&gt;Alessandro Cappellini&lt;/a&gt; posted a photo:&lt;/p&gt;
+	
+&lt;p&gt;&lt;a href=&quot;https://www.flickr.com/photos/alecappellini/26121628070/&quot; title=&quot;Cripta&quot;&gt;&lt;img src=&quot;https://farm2.staticflickr.com/1488/26121628070_f51ac646bf_m.jpg&quot; width=&quot;240&quot; height=&quot;159&quot; alt=&quot;Cripta&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Cripta dell'Abbazia di Nonantola&lt;/p&gt;</content>
+    <author>
+      <name>Alessandro Cappellini</name>
+      <uri>https://www.flickr.com/people/alecappellini/</uri>
+      <flickr:nsid>96119741@N07</flickr:nsid>
+      <flickr:buddyicon>https://farm4.staticflickr.com/3719/buddyicons/96119741@N07.jpg?1370852204#96119741@N07</flickr:buddyicon>
+    </author>
+    <link rel="enclosure" type="image/jpeg" href="https://farm2.staticflickr.com/1488/26121628070_f51ac646bf_b.jpg" />
+    <category term="grande" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="italia" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="reliquia" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="emilia" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="chiesa" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="forza" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="di" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="pace" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="z" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="museo" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="duomo" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="modena" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="soria" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="colori" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="antico" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="architettura" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="hdr" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="matilde" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="medioevo" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="colonne" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="colonna" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="alessandro" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="esposizione" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="archi" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="lavoro" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="romagna" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="abbazia" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="ossa" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="canossa" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="sotterraneo" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="carlomagno" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="nonantola" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="modenese" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="maestoso" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="astolfo" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="santalfonso" scheme="https://www.flickr.com/photos/tags/" />
+    <category term="grandiosità" scheme="https://www.flickr.com/photos/tags/" />
+    <displaycategories>
+            </displaycategories>
+    </entry>
+
+						</code></pre>
+					</section>
+
+				</section>
+
+				<!-- Slide #6 -->
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+					<section>
+					<h3><span style="color:#e7ad52">3. Introduzione al mobile web</span></h3>
+					</section>
+					<section>
+					<ul><li>Applicazioni web (web app)</li>
+						<li>Applicazioni native (app native)</li>
+						<li>Applicazioni ibride (app ibride)</li></ul>
+					</section>
+
+					<section>
+					<h3><span style="color:lightblue;">Applicazioni web</span></h3>
+					<p>Siti web ottimizzati per il mobile non distribuiti attraverso iTunes App Store, Google Play, Windows Store, etc.
+					Accessibili alla maggioranza dei dispositivi mobile attraverso un browser web e una connessione internet.</p>
+					</section>
+					
+					<section>
+					<h3><span style="color:lightblue;">Applicazioni mobile native</span></h3>
+					<p>Applicazioni scritte in codice nativo (come Swift/Objective-C e Java) per una piattaforma specifica (Android, iOS, etc.). Possono essere distribuite attraverso iTunes App Store, Google Play, Windows Store, etc. Devono essere scritte (programmate) separatamente per ciascuna piattaforma. 
+					Molte app distribuite attraverso iTunes App Store e Google Play sono in realtà <b>applicazioni ibride</b>, cioè basate su applicazioni web ma racchiuse nel codice nativo.</p>
+					</section>
+					
+					<section>
+					<h3><span style="color:lightblue;">Applicazioni mobile ibride</span></h3>
+					<p>Applicazioni scritte con una combinazione di tecnologie web come HTML, CSS, e JavaScript ma ospitate all'interno di un'applicazione nativa (per consentire l'accesso a funzionalità come l'accelerometro, la fotocamera, i contatti, ecc.). Tra le più famose: Amazon Appstore, Evernote, Twitter, Instagram, Gmail, Uber.</p>
+					</section>					
+				</section>
+				</section>
+
+				<!-- Slide #6 -->
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+				<section>			
+				<h3><span style="color:#e7ad52">4. I linguaggi per la progettazione</span></h3>
+				</section>
+
+				<section><h3><span style="color:#e7ad52">{"company":"Apple"}</span></h3>
+				 <h3><span style="color:#e7ad52">Objective-C > Swift</span></h3>
+					<ul><li>Objective-C (Apple) <a href="http://www.martinezfotografo.it/swift-1-cose-un-linguaggio-di-programmazione/" target="_blank">aveva radici profonde nell'era pre-mobile.</a></li>
+						<li>Con <a href="https://developer.apple.com/swift/" target="_blank" >Swift</a> si compie il passaggio a un linguaggio meno disordinato e <a href="https://www.codingforentrepreneurs.com/projects/30-days-swift/" target="_blank">più facile da imparare.</a></li>
+						<li>Open source? Sì, no, quasi. <a href="http://www.infoworld.com/article/2932812/ios/apple-open-sources-swift-to-draw-more-developers-to-ios.html" target="_blank">Dipende.</a></li>
+					</ul>
+				</section>
+
+
+				<section><h3><span style="color:#e7ad52">{"company":"Google"}</span></h3>
+				 <h3><span style="color:#e7ad52">Java</span></h3>
+					<ul><li>Google Android ha scelto Java come linguaggio, per via della sua versatilità.</li>
+					</ul>
+				</section>
+
+				<section><h3><span style="color:#e7ad52">Altre possibilità</span></h3>
+				 <h3><span style="color:#e7ad52">Python</span></h3>
+					<ul><li>Grazie a librerie open source come <a href="https://kivy.org/#home" target="_blank">Kivy</a>, è possibile realizzare app ibride capaci di interagire con l'interfaccia utente in ambiente mobile, multi-touch compreso.</li>
+					</ul>
+				</section>
+
+				<section><h3><span style="color:#e7ad52">Altre possibilità</span></h3>
+				 <h3><span style="color:#e7ad52"><a href="http://synesthesia.it/it/sviluppo-mobile-app-nativo-o-html5-crossplatform" target="_blank">HTML5</a></span></h3>
+					<ul><li>+ Standard cross-platform</li>
+					<li>+ Indipendenza dagli app store</li>
+					<li>- User experience inferiore</li>
+					<li>- Non è in grado di sfruttare tutte le funzionalità dei dispositivi mobile</li>
+					</ul>
+				</section>
+
+				</section>
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+				<section>
+						<h3><span style="color:#e7ad52">5. Iniziare con le applicazioni mobile senza sapere nulla (o quasi) di codice</span></h3>
+
+						<ul>
+							<li><a href="https://www.andromo.com/">Andromo</a></li>
+							<li><a href="http://www.appypie.com/pricing-plan" target="_blank">Appy Pie</a> </li>
+							<li><a href="https://bubble.is/" target="_blank">bubble</a> </li>
+
+						</ul>
+				</section>		
+				
+				<section><h3><span style="color:#e7ad52">Dettagli da non sottovalutare...</span></h3>
+
+				<ul>	<li>{"problema1":"sicurezza (non puoi sempre corregge i bug di persona)"}</li>
+											<li>{"problema2":"sicurezza (se gli strumenti cloud-based generano codice cattivo, non sarà possibile capirlo fino al test sull'utente finale)"}</li></ul>
+				</section>
+
+				</section> <!-- chiude contenitore -->
+
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+				<section>
+						<h3><span style="color:#e7ad52">6. Cordova e Phonegap</span></h3>
+				</section>		
+				
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/PhoneGap_build_diagram_3.png">					
+				</section>	
+
+				<section>
+					<h3><span style="color:#e7ad52">Che cos'è Cordova?</span></h3>
+					<p>Una suite che permette di creare app ibride con HTML, CSS, JavaScript e un insieme di API messe a disposizione dal framework per accedere alle funzionalità native del dispositivo (come la fotocamera, il rilevatore GPS, l’accelerometro...)</p>
+					<p>(...e sì, <a href="http://cordova.apache.org/" target="_blank">Apache Cordova</a>  è open source)</p>
+				</section>
+
+				<section>
+					<h3><span style="color:#e7ad52">Che cos'è Adobe Phonegap?</span></h3>
+					<p>Il framework Adobe Phonegap è una distribuzione <span style="color:#e7ad52">open source</span> di <a href="#/9/2">Cordova</a> e permette allo stesso modo creare app ibride con HTML, CSS e JavaScript. Ha il vantaggio di offrire una app desktop semplificata per il testing direttamente su browser e mobile device (<a href="https://play.google.com/store/apps/details?id=com.adobe.phonegap.app" target="_blank">con la app PhoneGap Developer</a> ), grazie alla creazione di un server virtuale.</p>					
+				</section>
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/Desktop-Browser.gif"></section>
+
+
+				</section> <!-- chiude contenitore -->
+
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+				<section>
+						<h3><span style="color:#e7ad52">7. Browser, strumenti avanzati e ispezione del codice.</span></h3>
+				</section>		
+				
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/developer_tools_1.png"></section>
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/developer_tools_2.png"></section>
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/developer_tools_3.png"></section>
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="https://media.giphy.com/media/3osxY9kuM2NGUfvThe/giphy.gif"></section>
+
+				</section> <!-- chiude contenitore -->
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+				<section>
+						<h3><span style="color:#e7ad52">8. Le funzioni native di smartphone e tablet.</span></h3>
+				</section>		
+				
+				<section>
+				<h3><span style="color:#e7ad52">ConfiGAP</span></h3>
+						<img src="img/configap_1.png">
+				</section>
+
+				<section>
+					<img src="img/configap_2.png">
+				</section>
+
+				<section>
+					<img src="img/configap_3.png">
+				</section>								
+				</section> <!-- chiude contenitore -->
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+				<section>
+						<h3><span style="color:#e7ad52">9. InternetCulturale, CulturaItalia e Europeana.</span></h3>
+				</section>
+
+				<section><h3><span style="color:#e7ad52">Europeana e il sistema di aggregazione</span></h3><ul><li>Aggregare</li>
+				<li>Facilitare</li>
+				<li>Distribuire</li>
+				<li>Coinvolgere</li></ul></section>	
+
+				<section><h3><span style="color:#e7ad52"><a href="http://www.culturaitalia.it/opencms/aderisci_al_portale_it.jsp?language=it&tematica=static" target="_blank">CulturaItalia</a></span></h3>
+				<ul>
+				<li>Fornisce supporti per rendere interoperabili le banche dati e il sistema di aggregazione</li>
+				<li>&Egrave; il principale provider di contenuti italiani a Europeana</li>
+				<li>InternetCulturale è <a href="http://dati.culturaitalia.it/" target="_blank">interoperabile</a> con CulturaItalia</li>
+				</ul> </section>
+
+				<section><h3><span style="color:#e7ad52">Esposizione dei dati</span></h3>
+				<p>Ma Europeana è l'unica piattaforma che espone pubblicamente i dati (via Api) in formato JSON</p>
+				</section>	
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/api_key_europeana.png"></section>
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/api_key_europeana_2.png"></section>
+				
+								
+				</section>
+
+
+
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+				<section>
+						<h3><span style="color:#e7ad52">10. Come far dialogare una app con i contenuti esterni.</span></h3>
+				</section>		
+				
+				<section><h3>Tanto per mettere le cose in chiaro, qui passeremo la maggior parte del tempo.</h3>					
+				</section>
+				<section><h3><span style="color:#e7ad52">Ci concentreremo soltanto su:</span></h3>
+				<h2>REST API</h2>
+				</section>
+
+				<section><ul>
+						<li><a href="http://labs.europeana.eu/api/search" target="_blank">Europeana api search (REST / JSON)</a></li>
+						<li><a href="https://www.apitools.com/apis/europeana" target="_blank">Europeana api tools</a></li>
+						</ul>
+				</section>
+				<section><p>Un Web Service RESTful è custode di un insieme di risorse sulle quali un client può chiedere le operazioni canoniche del protocollo HTTP</p></section>
+				<section data-transition="slide" data-background-transition="zoom" data-background="https://media.giphy.com/media/736he3qcXJhwQ/giphy.gif"><h3 style="font-size: 3em" >?</h3></section>
+				<section><p><span style="color:#e7ad52">Diciamolo meglio:</span> REST non prevede esplicitamente nessuna modalità per descrivere come interagire con una risorsa. Le operazioni sono implicite nel protocollo HTTP. REST non intende aggiungere in pratica sovrastrutture non necessarie.</p></section>
+				<section><p>Un concetto importante in REST è l'esistenza di risorse (fonti di informazioni), a cui si può accedere tramite un identificatore globale (URI)</p>
+				<p><a href="https://it.wikipedia.org/wiki/Representational_State_Transfer" target="_blank">[voce su Wikipedia]</a></p> </section>
+				<section><h3><span style="color:#e7ad52">Come procediamo?</span></h3></section>
+
+				<section><ul><li>Query</li><li>Parsing del JSON</li><li>Selezione dei campi</li>
+				<li>Creazione dell'HTML</li></ul></section>
+
+					<section data-transition="slide" data-background-transition="zoom" data-background="img/api_key_europeana_3.png">
+					</section>
+				</section> <!-- chiude contenitore -->
+
+
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+				<section>
+						<h3><span style="color:#e7ad52">11. Sviluppo, build e finalizzazione.</span></h3>
+				</section>	
+
+				<section><h3><span style="color:#e7ad52">Creazione di un file *.zip compresso dalla cartella "www"</span></h3><h2>1.</h2> <img src="img/build_1.png"> </section>
+
+				<section><h2>2.</h2> <img src="img/PhoneGap_build_1.png"> </section>
+				<section><h2>3.</h2> <h3><span style="color:#e7ad52">
+				<a href="https://build.phonegap.com/apps" target="_blank">Adobe PhoneGap Build</a> </span></h3>
+				<img src="img/build_3.png"></section>
+
+				<section><h2>4.</h2><img src="img/build_4.png"></section> 
+
+				<section><h2>5.</h2><img src="img/build_5.png"></section>
+				<section><h2>6.</h2><img src="img/build_6.png"></section>
+				<section><h2>7.</h2><img src="img/build_7.png"></section>
+				<section><h2>8.</h2><img src="img/build_8.png"></section>
+				<section><h2>9.</h2><img src="img/build_9.png"></section>
+				<section><h2>10.</h2><img src="img/build_10.png"></section>
+				<section><h2>11.</h2><img src="img/build_11.png"></section>
+				<section><h2>12.</h2><h3><span style="color:#e7ad52">Abilitare la modalità Hydration e salvare</span></h3><img src="img/build_12.png"></section>
+				<section><h2>13.</h2><h3><span style="color:#e7ad52">Nuovo download (sovrascrivere il file) + update</span></h3><img src="img/build_13.png"></section>
+				<section data-transition="slide" data-background-transition="zoom" data-background="https://media.giphy.com/media/SUC7Joiby0rq8/giphy.gif"><h3><span style="color:#e7ad52">E...</span></h3></section>
+
+				<section><h2>14.</h2><h3><span style="color:#e7ad52">Funziona!</span></h3><img src="img/build_15.png"></section>				
+				</section> <!-- chiude contenitore -->
+
+		
+				
+				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
+				<section><h3><span style="color:#e7ad52">12. Altre risorse...</h3></section>
+				<section><p><a href="https://www.invisionapp.com/" target="_blank">Invision</a> [Templating, comunicazione e design]</p>
+				<p><a href="https://mockflow.com">Mockflow</a> [Templating, comunicazione e design] </p>
+				<p><a href="http://configap.com/" target="_blank">Configap</a> [applicazione per facilitare la creazione del file di configurazione per Adobe® PhoneGap™ Build] </p>
+				</section>
+
+
+					<section>
+					<p><a href="https://www.appmakr.com/" target="_blank">Appmakr</a> [App builder e store alternativo] </p>
+					<p><a href="https://www.andromo.com/" target="_blank">Andromo</a> [App builder "code free" solo per Android] </p>
+					<p><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> [Web framework per realizzare template adatti per il mobile] </p>
+					
+					</section>
+				</section>
+
+				<!-- Fine -->
+				<section data-transition="slide" data-background-transition="zoom" data-background="https://media.giphy.com/media/AkLGHCYGv43uw/giphy.gif" >
+				</section>
+				
+<!--
+				<section>
+				<h2>Export to PDF</h2>
+				<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
+				<iframe src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+				</section>
+-->
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
