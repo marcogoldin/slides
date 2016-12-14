@@ -69,7 +69,7 @@
 						<li>Iniziare con le applicazioni mobile senza sapere nulla (o quasi) di codice (Andromo)</li>
 						<li>Cordova e Phonegap</li>
 						<li>Browser, strumenti avanzati e ispezione del codice</li>
-						<li>Le funzioni native di smartphone e tablet</li>
+						<li>Configurazioni, specifiche e funzioni native di smartphone e tablet.</li>
 						<li>InternetCulturale, CulturaItalia e Europeana</li>
 						<li>Come far dialogare una app con i contenuti esterni</li>
 						<li>Sviluppo, build e finalizzazione.</li>
@@ -349,6 +349,7 @@ jsonFlickrFeed({
 					<section>
 					<h3><span style="color:lightblue;">PWA</span></h3>
 					<p>Introdotte da Google nel 2015, le <a href="http://www.universalmind.com/blog/progressive-web-applications-the-end-of-apps-the-future-of-the-web/" target="_blank">progressive web apps</a>  cercano di unire il meglio delle tecnologie web e delle applicazioni mobile.</p>	
+					<p><a href="https://developers.google.com/web/fundamentals/native-hardware/fullscreen/" target="_blank">Pwa: Making Fullscreen Experiences</a></p>
 					</section>					
 				</section>
 				</section>
@@ -454,9 +455,40 @@ jsonFlickrFeed({
 
 				<section data-transition="slide" data-background-transition="zoom" data-background="img/bg_chalk_1_genova.jpg">
 				<section>
-						<h3><span style="color:#e7ad52">8. Le funzioni native di smartphone e tablet.</span></h3>
+						<h3><span style="color:#e7ad52">Configurazioni, specifiche e funzioni native di smartphone e tablet.</span></h3>
 				</section>		
 				
+				<section>
+					<h3><span style="color:#e7ad52">Esempio di file config.xml per app creata con Phonegap</h3>
+					<p><a href="http://docs.phonegap.com/phonegap-build/configuring/" target="_blank">Phonegap docs</a></p>
+				
+						<pre><code class="hljs" data-trim contenteditable>
+						<?xml version="1.0" encoding="UTF-8" ?>
+						<widget xmlns   = "http://www.w3.org/ns/widgets"
+					    xmlns:gap   = "http://phonegap.com/ns/1.0"
+					    id          = "com.phonegap.example"
+					    versionCode = "10"
+					    version     = "1.0.0" >
+
+						<!-- versionCode facoltativo e solo per Android -->
+
+						  <name>La mia app</name>
+
+						  <description>
+						      La mia app è fantastica e ti permette di...
+						  </description>
+
+						  <author href="https://build.phonegap.com" email="marco@daqualcheparte.com">
+						      Marco
+						  </author>
+
+						</widget>
+						</code></pre>
+
+
+				</section>
+
+
 				<section>
 				<h3><span style="color:#e7ad52">ConfiGAP</span></h3>
 						<img src="img/configap_1.png">
